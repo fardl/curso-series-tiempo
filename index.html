@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Econometría de Series de Tiempo · Pregrado</title>
+  <meta name="description" content="Curso de Econometría de Series de Tiempo, Pregrado en Economía. Profesor Francisco A. Ramírez de León.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inconsolata:wght@400;500&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <div class="header-meta">
+        <span class="institution">Pontificia Universidad Católica Madre y Maestra</span>
+        <span class="dot">·</span>
+        <span>Escuela de Economía</span>
+      </div>
+      <h1 class="site-title">Econometría de Series de Tiempo</h1>
+      <p class="subtitle">Pregrado en Economía · 14 semanas · 2026</p>
+      <p class="instructor">Francisco A. Ramírez de León</p>
+    </div>
+  </header>
+
+  <nav class="site-nav">
+    <div class="container">
+      <a href="#inicio">Inicio</a>
+      <a href="#programa">Programa</a>
+      <a href="#cronograma">Cronograma</a>
+      <a href="#materiales">Materiales</a>
+      <a href="#evaluacion">Evaluación</a>
+      <a href="#bibliografia">Bibliografía</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+  </nav>
+
+  <main class="container">
+
+    <!-- INICIO -->
+    <section id="inicio" class="section">
+      <div class="section-number">01</div>
+      <h2>Sobre el curso</h2>
+      <p class="lead">
+        Este curso forma economistas capaces de analizar, modelar y pronosticar
+        series macroeconómicas y financieras. El enfoque es radicalmente aplicado:
+        cada concepto teórico se introduce a partir de una pregunta económica
+        concreta y se implementa en <code>R</code> sobre datos del Banco Central
+        de la República Dominicana.
+      </p>
+
+      <div class="three-pillars">
+        <div class="pillar">
+          <span class="pillar-num">I</span>
+          <h3>Efectos dinámicos</h3>
+          <p>¿Cuánto tiempo tarda un shock económico en disiparse? ARIMA y funciones impulso-respuesta.</p>
+        </div>
+        <div class="pillar">
+          <span class="pillar-num">II</span>
+          <h3>Causalidad</h3>
+          <p>¿Quién mueve a quién en la economía? VAR estructural e identificación recursiva.</p>
+        </div>
+        <div class="pillar">
+          <span class="pillar-num">III</span>
+          <h3>Pronóstico</h3>
+          <p>¿Qué va a pasar después? Métricas de error, validación e intervalos de predicción.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROGRAMA -->
+    <section id="programa" class="section">
+      <div class="section-number">02</div>
+      <h2>Programa</h2>
+      <p>El curso se organiza en cuatro bloques. La progresión es deliberadamente acumulativa: cada bloque construye sobre el anterior.</p>
+
+      <div class="blocks">
+        <article class="block">
+          <header>
+            <span class="block-tag">Bloque 1</span>
+            <span class="block-weeks">Semanas 1–2</span>
+          </header>
+          <h3>Fundamentos univariados</h3>
+          <p>Componentes de una serie. Procesos estocásticos. Estacionariedad débil. ACF y PACF. Ruido blanco como referencia.</p>
+        </article>
+
+        <article class="block">
+          <header>
+            <span class="block-tag">Bloque 2</span>
+            <span class="block-weeks">Semanas 3–6</span>
+          </header>
+          <h3>Modelos ARIMA</h3>
+          <p>AR, MA, ARMA. Metodología Box-Jenkins. Raíces unitarias (ADF, KPSS). ARIMA y SARIMA. Pronóstico puntual e intervalos.</p>
+        </article>
+
+        <article class="block">
+          <header>
+            <span class="block-tag">Bloque 3</span>
+            <span class="block-weeks">Semanas 7–11</span>
+          </header>
+          <h3>Modelos multivariados</h3>
+          <p>VAR reducido. Causalidad de Granger. SVAR con identificación recursiva. IRFs y FEVD. Cointegración bivariada y VECM.</p>
+        </article>
+
+        <article class="block">
+          <header>
+            <span class="block-tag">Bloque 4</span>
+            <span class="block-weeks">Semanas 12–14</span>
+          </header>
+          <h3>Volatilidad y cierre</h3>
+          <p>ARCH y GARCH aplicados a volatilidad cambiaria. Mención conceptual a la frontera: bayesianos, factores y machine learning.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- CRONOGRAMA -->
+    <section id="cronograma" class="section">
+      <div class="section-number">03</div>
+      <h2>Cronograma detallado</h2>
+      <table class="schedule">
+        <thead>
+          <tr>
+            <th>Sem.</th>
+            <th>Tema de la sesión</th>
+            <th>Entrega</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>Introducción al curso, motivación, primer contacto con R</td><td>—</td></tr>
+          <tr><td>2</td><td>Estacionariedad, ACF/PACF, descomposición visual</td><td>Ejercicio 1</td></tr>
+          <tr><td>3</td><td>Procesos AR, MA, ARMA: identificación con ACF/PACF</td><td>Ejercicio 2</td></tr>
+          <tr><td>4</td><td>Box-Jenkins: estimación, diagnóstico, Ljung-Box</td><td>Ejercicio 3</td></tr>
+          <tr><td>5</td><td>Raíz unitaria (ADF, KPSS), ARIMA, SARIMA, pronóstico</td><td>Ejercicio 4</td></tr>
+          <tr class="highlight"><td>6</td><td>Consolidación + <strong>Examen parcial</strong></td><td>Examen</td></tr>
+          <tr><td>7</td><td>VAR reducido: motivación, estimación, selección de orden</td><td>Ejercicio 5</td></tr>
+          <tr><td>8</td><td>Causalidad de Granger, diagnóstico VAR</td><td>Ejercicio 6</td></tr>
+          <tr><td>9</td><td>SVAR con Cholesky: identificación, IRFs</td><td>Ejercicio 7</td></tr>
+          <tr><td>10</td><td>FEVD, intervalos por bootstrap, interpretación económica</td><td>Ejercicio 8</td></tr>
+          <tr><td>11</td><td>Cointegración bivariada y VECM (Engle-Granger)</td><td>Ejercicio 9</td></tr>
+          <tr><td>12</td><td>ARCH/GARCH aplicado a volatilidad cambiaria</td><td>Ejercicio 10</td></tr>
+          <tr><td>13</td><td>Cierre conceptual + presentaciones</td><td>Ejercicios 11–12</td></tr>
+          <tr class="highlight"><td>14</td><td>Presentaciones de proyectos finales</td><td><strong>Proyecto final</strong></td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- MATERIALES -->
+    <section id="materiales" class="section">
+      <div class="section-number">04</div>
+      <h2>Materiales del curso</h2>
+      <p>Todos los materiales se publican en este sitio antes de cada sesión correspondiente.</p>
+
+      <div class="materials-grid">
+        <a class="material-card" href="materiales/Programa_Pregrado.pdf">
+          <span class="material-type">Sílabo</span>
+          <h3>Programa del curso</h3>
+          <p>Sílabo completo: objetivos, contenido por bloques, evaluación y bibliografía.</p>
+          <span class="material-link">Descargar PDF →</span>
+        </a>
+
+        <a class="material-card" href="materiales/Sesion1_Beamer.pdf">
+          <span class="material-type">Sesión 1</span>
+          <h3>Introducción al curso</h3>
+          <p>Presentación de la primera sesión: motivación, reglas y primer contacto con R.</p>
+          <span class="material-link">Descargar PDF →</span>
+        </a>
+
+        <a class="material-card" href="materiales/Libro_ST_completo.pdf">
+          <span class="material-type">Texto base</span>
+          <h3>Libro de Series de Tiempo</h3>
+          <p>Texto base del curso. Capítulos 1–4 cubren íntegramente el contenido del programa.</p>
+          <span class="material-link">Descargar PDF →</span>
+        </a>
+
+        <div class="material-card disabled">
+          <span class="material-type">Sesión 2</span>
+          <h3>Estacionariedad y ACF</h3>
+          <p>Disponible la semana del 8 de mayo.</p>
+          <span class="material-link">Próximamente</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- EVALUACION -->
+    <section id="evaluacion" class="section">
+      <div class="section-number">05</div>
+      <h2>Evaluación</h2>
+      <div class="eval-grid">
+        <div class="eval-item">
+          <div class="eval-weight">40<span>%</span></div>
+          <h3>Ejercicios semanales</h3>
+          <p>Doce entregas cortas, una por semana entre las semanas 2 y 13. Se inician en clase. <strong>No se aceptan tarde.</strong></p>
+        </div>
+        <div class="eval-item">
+          <div class="eval-weight">25<span>%</span></div>
+          <h3>Examen parcial</h3>
+          <p>Semana 6. Cubre los bloques 1 y 2 (univariado y ARIMA). Mitad teoría, mitad código en R.</p>
+        </div>
+        <div class="eval-item">
+          <div class="eval-weight">35<span>%</span></div>
+          <h3>Proyecto final</h3>
+          <p>Individual o en parejas. Aplicación a datos macro-financieros dominicanos. Informe + código + presentación.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- BIBLIOGRAFIA -->
+    <section id="bibliografia" class="section">
+      <div class="section-number">06</div>
+      <h2>Bibliografía</h2>
+
+      <h3 class="biblio-tier">Texto base</h3>
+      <ul class="biblio">
+        <li>
+          <strong>Ramírez de León, F. A.</strong> (2026).
+          <em>Econometría de Series de Tiempo</em>.
+          Edición independiente.
+        </li>
+      </ul>
+
+      <h3 class="biblio-tier">De apoyo</h3>
+      <ul class="biblio">
+        <li>
+          <strong>Hyndman, R. J. &amp; Athanasopoulos, G.</strong> (2021).
+          <em>Forecasting: Principles and Practice</em> (3ra ed.).
+          OTexts. <a href="https://otexts.com/fpp3/" target="_blank" rel="noopener">otexts.com/fpp3</a>
+        </li>
+        <li>
+          <strong>Enders, W.</strong> (2015).
+          <em>Applied Econometric Time Series</em> (4ta ed.). Wiley.
+        </li>
+        <li>
+          <strong>Stock, J. H. &amp; Watson, M. W.</strong> (2019).
+          <em>Introduction to Econometrics</em> (4ta ed.). Pearson.
+        </li>
+      </ul>
+
+      <h3 class="biblio-tier">De profundización (no requerida)</h3>
+      <ul class="biblio">
+        <li><strong>Hamilton, J. D.</strong> (1994). <em>Time Series Analysis</em>. Princeton University Press.</li>
+        <li><strong>Kilian, L. &amp; Lütkepohl, H.</strong> (2017). <em>Structural Vector Autoregressive Analysis</em>. Cambridge University Press.</li>
+        <li><strong>Lütkepohl, H.</strong> (2005). <em>New Introduction to Multiple Time Series Analysis</em>. Springer.</li>
+      </ul>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto" class="section">
+      <div class="section-number">07</div>
+      <h2>Contacto</h2>
+      <div class="contact-card">
+        <p class="contact-name">Francisco A. Ramírez de León</p>
+        <p class="contact-line"><span>Correo</span> fa.ramirez@ce.pucmm.edu.do</p>
+        <p class="contact-line"><span>Aula</span> B1-201</p>
+        <p class="contact-line"><span>Horario</span> Sesión semanal de 3 horas</p>
+        <p class="contact-note">Los correos se responden de lunes a viernes en horario laboral.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2026 Francisco A. Ramírez de León · Pontificia Universidad Católica Madre y Maestra</p>
+      <p class="footer-meta">Sitio del curso construido con HTML y CSS · Hospedado en GitHub Pages</p>
+    </div>
+  </footer>
+
+</body>
+</html>
