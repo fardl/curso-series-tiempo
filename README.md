@@ -4,7 +4,7 @@ Repositorio del curso de Econometría de Series de Tiempo.
 
 **Profesor:** Francisco A. Ramírez de León  
 **Duración:** 14 semanas  
-**Sitio web:** [`https://<tu-usuario>.github.io/<nombre-repo>/`](#)
+**Sitio web:** [`[https://fardl.github.io/curso-series-tiempo/]`(#)
 
 ---
 
