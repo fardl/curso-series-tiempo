@@ -1,0 +1,276 @@
+\documentclass[11pt,letterpaper]{article}
+
+% ==== Paquetes estándar (compatibles con Overleaf) ====
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+% Si tu entorno tiene babel-spanish, descomenta la línea siguiente:
+% \usepackage[spanish,es-tabla]{babel}
+% Si tu entorno tiene lmodern, descomenta:
+% \usepackage{lmodern}
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\usepackage{natbib}
+\usepackage{xcolor}
+
+% ==== Estilo de secciones ====
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{0.5em}{}
+\setlength{\parskip}{0.4em}
+\setlength{\parindent}{0pt}
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue!60!black, citecolor=black}
+
+% ==== Encabezado ====
+\title{\vspace{-2em}{Pontificia Universidad Católica Madre y Maestra \\
+Escuela de Economía \\
+Econometría de Series de Tiempo}}
+
+\begin{document}
+\maketitle
+
+\textbf{Profesor}: Francisco A. Ramírez de León\\
+\textbf{Email}: fa.ramirez@ce.pucmm.edu.do\\
+\textbf{Aula}: B1-201\\
+\textbf{Horario}: viernes, 17:00 - 22:00\\
+\textbf{Duración}: 14 semanas
+
+\thispagestyle{empty}
+
+\vspace{-1em}
+
+%========================================================
+\section{Presentación}
+%========================================================
+
+Este curso ofrece una formación sólida en econometría de series de tiempo orientada a estudiantes 
+de pregrado en Economía. Su propósito no es exponer al estudiante a la frontera metodológica completa,
+ sino formar un dominio real del ciclo de modelado: \emph{ver datos, especificar un modelo, estimarlo, diagnosticarlo, interpretarlo y pronosticar con él.} 
+ Para ello se han seleccionado deliberadamente los métodos clásicos que constituyen el lenguaje común del análisis macroeconómico aplicado: ARIMA univariado, VAR reducido y estructural, identificación, cointegración y pronóstico.
+
+El enfoque es radicalmente aplicado y centrado en el aula. Cada concepto teórico se introduce a partir 
+de una pregunta económica concreta, se formaliza con el rigor mínimo necesario y se implementa en \texttt{R} sobre datos macroeconómicos. 
+
+Métodos avanzados como econometría bayesiana, factores dinámicos, alta dimensión y machine learning para 
+series se mencionan al cierre del curso como una invitación a la frontera, pero no se desarrollan 
+formalmente.
+
+%========================================================
+\section{Objetivos}
+%========================================================
+
+\subsection{Objetivo general}
+
+Formar economistas capaces de analizar, modelar y pronosticar series macroeconómicas y financieras 
+usando métodos de series de tiempo, con criterio para seleccionar el modelo apropiado a la pregunta 
+y comunicar resultados de forma reproducible.
+
+\subsection{Objetivos específicos}
+
+Al finalizar el curso, el estudiante podrá:
+
+\begin{enumerate}[leftmargin=*, itemsep=0.2em]
+  \item Identificar visualmente los componentes de una serie (tendencia, estacionalidad, ciclo, ruido) y enunciar las propiedades que permiten o impiden modelarla.
+  \item Aplicar la metodología Box-Jenkins completa: identificar, estimar, diagnosticar y pronosticar con modelos ARIMA y SARIMA.
+  \item Realizar pruebas de raíz unitaria (ADF, KPSS) e interpretarlas correctamente.
+  \item Especificar y estimar un modelo VAR, computar funciones impulso-respuesta con identificación recursiva (Cholesky) e interpretar sus resultados en términos económicos.
+  \item Distinguir cointegración de no-cointegración entre dos series, y estimar un modelo VECM.
+  \item Producir código \texttt{R} ordenado y reproducible.
+  \item Comunicar resultados mediante un informe técnico breve con código replicable.
+\end{enumerate}
+
+\textit{Lo que este curso no cubre:} métodos bayesianos formales, modelos de factores dinámicos, FAVAR, MIDAS, LASSO temporal, machine learning para pronóstico, redes recurrentes. Estos temas se mencionan en la última sesión como horizontes de profundización.
+
+%========================================================
+\section{Información administrativa}
+%========================================================
+
+\begin{tabular}{@{}p{4.5cm} p{10cm}@{}}
+\textbf{Modalidad:} & Presencial con apoyo virtual \\
+\textbf{Duración:} & 14 semanas, 42 horas presenciales \\
+\textbf{Frecuencia:} & 1 sesión semanal \\
+\textbf{Software:} & \texttt{R} ($\geq$ 4.3), \texttt{RStudio} (alternativa: Posit Cloud) \\
+\textbf{Prerrequisitos:} & Econometría I (regresión lineal, inferencia OLS), Estadística inferencial \\
+\textbf{Evaluación:} & Ejercicios semanales (40\%) + Parcial (25\%) + Proyecto final (35\%) \\
+\end{tabular}
+
+%========================================================
+\section{Filosofía pedagógica del curso}
+%========================================================
+
+Este curso se diseña asumiendo dos realidades del estudiante de pregrado:
+
+\begin{enumerate}[leftmargin=*, itemsep=0.2em]
+  \item \textbf{El aprendizaje ocurre principalmente en el aula.} La clase no se organiza como exposición teórica seguida de estudio individual; se organiza como práctica guiada en vivo donde el estudiante construye el código y los conceptos en presencia del docente.
+  \item \textbf{Menos contenido, mejor digerido.} Todos los temas siguen la siguiente estructura: motivación, supuestos, estimación, diagnóstico, interpretación.
+  \item \textbf{Práctica continua sobre evaluación concentrada.} El componente más pesado de la nota corresponde a ejercicios semanales cortos. Esto reemplaza el "estudio en casa" que típicamente no ocurre, y construye el hábito de aplicar inmediatamente lo aprendido cada semana.
+\end{enumerate}
+
+Cada sesión sigue una estructura recurrente: motivación con datos reales (30 min), introducción conceptual breve (15 min), práctica guiada en \texttt{R} con script de andamiaje (90 min), ejercicio aplicado en parejas (45 min) y cierre con tarea breve para la próxima sesión.
+
+%========================================================
+\section{Contenido programático por bloques}
+%========================================================
+
+El curso se organiza en cuatro bloques. Las semanas son una guía.
+
+\subsection*{Bloque 1 --- Fundamentos univariados (Semanas 1--2)}
+
+\emph{Introducción al análisis de series temporales. Componentes de una serie: tendencia, estacionalidad, ciclo, ruido. Procesos estocásticos: noción intuitiva. Estacionariedad débil: definición y diagnóstico visual. Función de autocorrelación (ACF) y autocorrelación parcial (PACF) muestrales. Ruido blanco como referencia.}
+
+\begin{itemize}[leftmargin=*, itemsep=0.2em]
+  \item \textbf{Práctica R:} \texttt{tidyverse}, \texttt{lubridate}, \texttt{forecast}. Carga, visualización y diagnóstico exploratorio de series del BCRD.
+  \item \textbf{Sesión 1 (semana 1):} Introducción al curso, primer contacto con datos macro.
+  \item \textbf{Sesión 2 (semana 2):} Estacionariedad, ACF/PACF, descomposición visual.
+\end{itemize}
+
+\subsection*{Bloque 2 --- Modelos ARIMA (Semanas 3--6)}
+
+\emph{Operador de rezagos. Procesos AR(p), MA(q) y ARMA(p,q): condiciones de estacionariedad e invertibilidad. Metodología Box-Jenkins: identificación, estimación, diagnóstico, pronóstico. Test de Ljung-Box. Raíces unitarias y regresiones espurias. Pruebas ADF y KPSS: interpretación correcta de hipótesis nulas opuestas. Modelos ARIMA(p,d,q). Estacionalidad y SARIMA. Criterios de información: AIC, BIC. Pronóstico puntual e intervalos de predicción.}
+
+\begin{itemize}[leftmargin=*, itemsep=0.2em]
+  \item \textbf{Práctica R:} \texttt{forecast}, \texttt{tseries}, \texttt{urca}. Pipeline completo de modelado ARIMA sobre IPC mensual e IMAE dominicano.
+  \item \textbf{Output:} Reporte breve aplicando Box-Jenkins a una serie macro, con pronóstico a 12 meses.
+  \item \textbf{Semanas 3--5:} Construcción del ciclo Box-Jenkins.
+  \item \textbf{Semana 6:} Consolidación y \textbf{examen parcial}.
+\end{itemize}
+
+\subsection*{Bloque 3 --- Modelos multivariados (Semanas 7--11)}
+
+\emph{Modelo VAR: motivación, especificación y estimación por MCO ecuación por ecuación. Selección del orden por criterios de información. Diagnóstico de residuos. Causalidad de Granger: definición operativa, test e interpretación correcta (causalidad predictiva, no filosófica). VAR estructural con identificación recursiva (Cholesky): el problema de identificación, la elección del orden de las variables, sus implicaciones. Funciones impulso-respuesta (IRF) e intervalos de confianza por bootstrap. Descomposición de varianza del error de pronóstico (FEVD). Cointegración bivariada: el problema de regresiones espurias revisitado, definición de cointegración, procedimiento Engle-Granger en dos pasos. Modelo de corrección de errores (VECM) bivariado.}
+
+\begin{itemize}[leftmargin=*, itemsep=0.2em]
+  \item \textbf{Práctica R:} \texttt{vars}, \texttt{urca}. Aplicación al canal de transmisión monetaria en RD: tasa de política monetaria, IPC, actividad económica.
+  \item \textbf{Output:} SVAR con identificación recursiva e IRFs interpretadas para datos macroeconómicos.
+  \item \textbf{Semanas 7--8:} VAR reducido, Granger, diagnóstico.
+  \item \textbf{Semanas 9--10:} SVAR con Cholesky, IRFs, FEVD.
+  \item \textbf{Semana 11:} Cointegración y VECM bivariado.
+\end{itemize}
+
+\subsection*{Bloque 4 --- Volatilidad y cierre (Semanas 12--14)}
+
+\emph{Heterocedasticidad condicional: motivación con datos financieros. Modelos ARCH(p) y GARCH(p,q): formulación, estimación e interpretación. Diagnóstico de efectos ARCH (test de Engle). Aplicación a volatilidad del tipo de cambio peso/dólar. Mención conceptual a la frontera: enfoque bayesiano (BVAR), modelos de factores y machine learning para series, sin desarrollo formal.}
+
+\begin{itemize}[leftmargin=*, itemsep=0.2em]
+  \item \textbf{Práctica R:} \texttt{rugarch}. Estimación de un GARCH(1,1) sobre retornos cambiarios diarios.
+  \item \textbf{Semana 12:} ARCH/GARCH aplicado.
+  \item \textbf{Semana 13:} Presentación de proyectos finales. Cierre conceptual: hacia dónde sigue el camino.
+  \item \textbf{Semana 14:} Examen final de proyecto y retroalimentación.
+\end{itemize}
+
+\textit{Nota sobre alcance:} si la dinámica del grupo lo permite, el bloque 4 puede sustituir GARCH por una introducción a Local Projections como alternativa intuitiva al SVAR. Esta decisión se toma en la semana 11 según el avance real del curso.
+
+%========================================================
+\section{Evaluación}
+%========================================================
+
+\begin{tabular}{@{}p{6.5cm} c c@{}}
+\toprule
+\textbf{Componente} & \textbf{Peso} & \textbf{Distribución temporal} \\
+\midrule
+Ejercicios semanales (12 entregas) & 40\% & Semanas 2--13 \\
+Examen parcial (Bloques 1--2) & 25\% & Semana 6 \\
+Proyecto final (individual o en parejas) & 35\% & Semana 13--14 \\
+\bottomrule
+\end{tabular}
+
+\subsection*{Ejercicios semanales (40\%)}
+
+Doce ejercicios cortos, uno por semana entre las semanas 2 y 13 (excluyendo la semana 6 del parcial y la semana 14 del cierre). Cada ejercicio se inicia en clase durante el bloque de práctica guiada y se entrega al final de la sesión o al inicio de la siguiente. Cada ejercicio aporta aproximadamente 3.3\% de la nota final.
+
+La calificación de cada ejercicio es binaria o trinaria (entregado correctamente / entregado parcialmente / no entregado). \textbf{No se aceptan entregas tardías.} Esta política existe porque el ejercicio \emph{es} el aprendizaje de la semana, no una tarea adicional.
+
+\subsection*{Examen parcial (25\%)}
+
+Examen presencial en la semana 6 cubriendo los bloques 1 y 2 (fundamentos univariados y modelos ARIMA). El examen se compone de una mitad teórica (preguntas conceptuales cortas e interpretación de outputs) y una mitad práctica (modificación o interpretación de scripts en \texttt{R}). Sin reposición salvo justificación documentada.
+
+\subsection*{Proyecto final (35\%)}
+
+Realizado individualmente o en parejas (máximo dos personas). El estudiante selecciona, con aprobación del docente, una serie o par de series macroeconómicas dominicanas y plantea una pregunta económica concreta. Aplica los métodos del curso para responderla y entrega:
+
+\begin{itemize}[leftmargin=*, itemsep=0.15em]
+  \item Un informe técnico de 6 a 8 páginas con motivación, datos, metodología, resultados e interpretación económica.
+  \item Código \texttt{R} reproducible: el evaluador debe poder ejecutar todo desde un único script o documento Quarto.
+  \item Una presentación oral de 10 minutos en la semana 13 o 14.
+\end{itemize}
+
+Se valora con igual peso la corrección técnica, la calidad de la interpretación económica, la claridad de la comunicación escrita y la reproducibilidad del código.
+
+\subsection*{Política sobre uso de IA generativa}
+
+El uso de herramientas de IA (ChatGPT, Claude, GitHub Copilot u otras) está permitido para entender conceptos y depurar código durante el desarrollo de ejercicios y proyectos. Está prohibido copiar respuestas literales en el examen parcial y en el informe escrito del proyecto final. La regla operativa es simple: \emph{si no puedes explicar oralmente lo que entregaste, no lo entregues.} Durante la presentación oral del proyecto final el docente puede pedir explicaciones de cualquier línea del código.
+
+%========================================================
+\section{Bibliografía}
+%========================================================
+
+\subsection{Texto base del curso}
+
+\begin{itemize}[leftmargin=*, itemsep=0.15em]
+  \item Ramírez de León, F. A. (2026). \emph{Econometría de Series de Tiempo}. Edición independiente. 
+\end{itemize}
+
+\subsection{Bibliografía de apoyo}
+
+\begin{itemize}[leftmargin=*, itemsep=0.15em]
+  \item Hyndman, R. J. \& Athanasopoulos, G. (2021). \emph{Forecasting: Principles and Practice} (3ra ed.). OTexts. \url{https://otexts.com/fpp3/}. Acceso libre. Referencia accesible y bien escrita para todo el bloque univariado.
+  \item Enders, W. (2015). \emph{Applied Econometric Time Series} (4ta ed.). Wiley. Especialmente útil para los bloques de ARIMA y VAR.
+  \item Stock, J. H. \& Watson, M. W. (2019). \emph{Introduction to Econometrics} (4ta ed.). Pearson. El último capítulo cubre los fundamentos de series de tiempo a nivel pregrado.
+\end{itemize}
+
+\subsection{Bibliografía de profundización (no requerida)}
+
+Para estudiantes que quieran continuar más allá del curso:
+
+\begin{itemize}[leftmargin=*, itemsep=0.15em]
+  \item Hamilton, J. D. (1994). \emph{Time Series Analysis}. Princeton University Press. Texto de referencia avanzado.
+  \item Kilian, L. \& Lütkepohl, H. (2017). \emph{Structural Vector Autoregressive Analysis}. Cambridge University Press. Para profundizar identificación SVAR.
+  \item Lütkepohl, H. (2005). \emph{New Introduction to Multiple Time Series Analysis}. Springer. Análisis VAR multivariado avanzado.
+\end{itemize}
+
+%========================================================
+\section{Cronograma detallado}
+%========================================================
+
+\begin{center}
+\small
+\begin{tabular}{@{}c p{7.5cm} p{4.5cm}@{}}
+\toprule
+\textbf{Sem.} & \textbf{Contenido de la sesión} & \textbf{Entregable} \\
+\midrule
+1 & Introducción al curso, motivación, primer contacto con \texttt{R} y datos del BCRD & --- \\
+2 & Estacionariedad, ACF/PACF, descomposición visual & Ejercicio 1 \\
+3 & Procesos AR, MA, ARMA: identificación con ACF/PACF & Ejercicio 2 \\
+4 & Box-Jenkins: estimación, diagnóstico, Ljung-Box & Ejercicio 3 \\
+5 & Raíz unitaria (ADF, KPSS), ARIMA, SARIMA, pronóstico & Ejercicio 4 \\
+6 & Consolidación + \textbf{Examen parcial} & Examen \\
+7 & VAR reducido: motivación, estimación, selección de orden & Ejercicio 5 \\
+8 & Causalidad de Granger, diagnóstico VAR & Ejercicio 6 \\
+9 & SVAR con Cholesky: identificación, IRFs & Ejercicio 7 \\
+10 & FEVD, intervalos por bootstrap, interpretación económica & Ejercicio 8 \\
+11 & Cointegración bivariada y VECM (Engle-Granger) & Ejercicio 9 \\
+12 & ARCH/GARCH aplicado a volatilidad cambiaria & Ejercicio 10 \\
+13 & Cierre conceptual + presentaciones de proyectos & Ejercicios 11--12 \\
+14 & Presentaciones de proyectos + retroalimentación & Proyecto final \\
+\midrule
+ & \textbf{Total: 42 horas presenciales} & \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+%========================================================
+\section{Política de reproducibilidad}
+%========================================================
+
+Todo código entregado debe correr sin intervención manual desde un único script o cuaderno. Se exige una estructura de proyecto mínima: una carpeta \texttt{datos/} con los archivos de entrada, una carpeta \texttt{R/} (o un único \texttt{.qmd}) con el código, y un \texttt{README} de una página explicando cómo replicar el resultado. Los reportes se entregan en formato PDF generado desde Quarto o LaTeX. No se aceptan capturas de pantalla de outputs ni código pegado como imágenes.
+
+Se recomienda, sin exigir, el uso de \texttt{renv} para gestión de dependencias en el proyecto final. Esto se enseña brevemente en la semana 13.
+
+
+
+\end{document}
