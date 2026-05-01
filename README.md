@@ -1,7 +1,6 @@
 # Econometría de Series de Tiempo · Pregrado
 
-Repositorio del curso de Econometría de Series de Tiempo de la Pontificia
-Universidad Católica Madre y Maestra (Escuela de Economía).
+Repositorio del curso de Econometría de Series de Tiempo.
 
 **Profesor:** Francisco A. Ramírez de León  
 **Duración:** 14 semanas  
